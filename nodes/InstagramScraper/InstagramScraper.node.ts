@@ -3,6 +3,7 @@ import {
     INodeExecutionData,
     INodeType,
     INodeTypeDescription,
+    NodeOperationError,
 } from 'n8n-workflow';
 import { InstagramScraper } from '@aduptive/instagram-scraper';
 
@@ -27,14 +28,17 @@ export class InstagramScraperNode implements INodeType {
                 required: true,
                 default: '',
                 placeholder: 'e.g., buenosairesparachicos',
-                description: 'The public Instagram profile username to scrape.',
+                description: 'The public Instagram profile username to scrape',
             },
             {
                 displayName: 'Limit',
                 name: 'limit',
                 type: 'number',
-                default: 20,
-                description: 'The maximum number of posts to return.',
+																typeOptions: {
+																	minValue: 1,
+																},
+                default: 50,
+                description: 'Max number of results to return',
             },
         ],
     };
@@ -55,13 +59,13 @@ export class InstagramScraperNode implements INodeType {
                 // Handle the case where the scrape was successful but no posts were found
                 return [this.helpers.returnJsonArray([])];
             } else {
-                throw new Error(results.error);
+                throw new NodeOperationError(this.getNode(), results.error || 'Unknown scraping error');
             }
         } catch (error) {
             if (error instanceof Error) {
-                throw new Error(`Failed to scrape Instagram: ${error.message}`);
+                throw new NodeOperationError(this.getNode(), `Failed to scrape Instagram: ${error.message}`);
             }
-            throw new Error('An unknown error occurred while scraping Instagram.');
+            throw new NodeOperationError(this.getNode(), 'An unknown error occurred while scraping Instagram.');
         }
     }
 }
