@@ -1,48 +1,72 @@
-![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
+# n8n Instagram Scraper Node
 
-# n8n-nodes-starter
+![n8n Logo Placeholder](https://via.placeholder.com/150/0000FF/FFFFFF?text=n8n+Logo) ![Instagram Logo Placeholder](https://via.placeholder.com/150/FF00FF/FFFFFF?text=Instagram+Logo)
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](https://n8n.io). It includes the node linter and other dependencies.
+This custom n8n node allows you to scrape public Instagram profiles to extract post information, primarily focusing on the text content (captions). It's built using the `@aduptive/instagram-scraper` library and is designed for easy integration into your n8n workflows.
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+**Disclaimer**: Scraping Instagram is against their terms of service. This tool should be used for educational purposes only. Be aware that Instagram frequently updates its website, which can break scrapers like this one.
 
-If you would like your node to be available on n8n cloud you can also [submit your node for verification](https://docs.n8n.io/integrations/creating-nodes/deploy/submit-community-nodes/).
+## Features
 
-## Prerequisites
+*   **Scrape Public Profiles**: Extract data from any public Instagram profile.
+*   **Get Post Captions**: Focuses on retrieving the text content of posts.
+*   **Configurable Limit**: Specify the number of recent posts to retrieve.
+*   **Easy to Use**: Simple interface within n8n.
 
-You need the following installed on your development machine:
+## Installation
 
-* [git](https://git-scm.com/downloads)
-* Node.js and npm. Minimum version Node 20. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-  ```
-  npm install n8n -g
-  ```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+To install this node in your local n8n instance:
 
-## Using this starter
+1.  **Clone this repository**:
+    ```bash
+    git clone git@github.com:pinedamg/n8n-nodes-instagram-scraper.git
+    cd n8n-nodes-instagram-scraper
+    ```
 
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
-   ```
-   git clone https://github.com/<your organization>/<your-repo-name>.git
-   ```
-3. Run `npm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `npm run lint` to check for errors or `npm run lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
+3.  **Build the node**:
+    ```bash
+    npm run build
+    ```
 
-## More information
+4.  **Link the package locally**:
+    ```bash
+    npm link
+    ```
 
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
+5.  **Install the node into your n8n instance**:
+    Navigate to your n8n custom nodes directory (e.g., `~/.n8n/custom/` or as configured by `N8N_CUSTOM_EXTENSIONS`) and link the package:
+    ```bash
+    npm link n8n-nodes-instagram-scraper
+    ```
+
+6.  **Start n8n**:
+    ```bash
+    n8n start
+    ```
+
+Once n8n starts, you should be able to find "Instagram Scraper" in the nodes panel.
+
+## Usage
+
+1.  Drag and drop the "Instagram Scraper" node into your workflow.
+2.  Configure the node:
+    *   **Username**: Enter the username of the public Instagram profile you want to scrape (e.g., `buenosairesparachicos`).
+    *   **Limit**: (Optional) Specify the maximum number of posts to retrieve. Default is 20.
+3.  Run the workflow. The node will output a JSON array containing the scraped post data, including the `caption` for each post.
+
+## Development
+
+If you want to contribute or modify this node:
+
+*   **`npm run dev`**: Watch for changes and recompile automatically.
+*   **`npm run lint`**: Check code for linting errors.
+*   **`npm run lintfix`**: Automatically fix linting errors.
 
 ## License
 
-[MIT](https://github.com/n8n-io/n8n-nodes-starter/blob/master/LICENSE.md)
+This project is licensed under the MIT License.
