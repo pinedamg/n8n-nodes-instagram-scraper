@@ -3,12 +3,10 @@ const path = require('path');
 module.exports = {
   target: 'node',
   mode: 'production',
-  entry: {
-    InstagramScraper: './nodes/InstagramScraper/InstagramScraper.node.ts',
-  },
+  entry: './index.ts', // Apunta a index.ts
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].node.js',
+    filename: 'index.js', // El archivo de salida principal será index.js
     libraryTarget: 'commonjs2',
   },
   resolve: {

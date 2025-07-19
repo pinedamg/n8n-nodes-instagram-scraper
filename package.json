@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-instagram-scraper",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A node to scrape public Instagram profiles.",
   "keywords": [
     "n8n-community-node-package"
@@ -15,7 +15,7 @@
     "type": "git",
     "url": ""
   },
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "build": "npx rimraf dist && tsc && webpack --config webpack.config.js && gulp build:icons",
     "dev": "tsc --watch",
@@ -31,7 +31,7 @@
     "n8nNodesApiVersion": 1,
     "credentials": [],
     "nodes": [
-      "dist/nodes/InstagramScraper/InstagramScraper.node.js"
+      "nodes/InstagramScraper/InstagramScraper.node.js"
     ]
   },
   "devDependencies": {
