@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-instagram-scraper",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A node to scrape public Instagram profiles.",
   "keywords": [
     "n8n-community-node-package"
@@ -31,7 +31,7 @@
     "n8nNodesApiVersion": 1,
     "credentials": [],
     "nodes": [
-      "nodes/InstagramScraper/InstagramScraper.node.js"
+      "index.js"
     ]
   },
   "devDependencies": {
