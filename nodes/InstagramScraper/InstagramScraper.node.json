@@ -1,0 +1,12 @@
+{
+    "node": "n8n-nodes-base.InstagramScraperNode",
+    "nodeVersion": "1.0",
+    "codexVersion": "1.0",
+    "categories": [
+        "Social Media"
+    ],
+    "resources": {
+        "credentialDocumentation": [],
+        "primaryDocumentation": []
+    }
+}
