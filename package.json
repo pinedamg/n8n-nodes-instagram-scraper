@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-instagram-scraper",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "A node to scrape public Instagram profiles.",
   "keywords": [
     "n8n-community-node-package"
@@ -9,32 +9,32 @@
   "homepage": "https://github.com/pinedamg/n8n-nodes-instagram-scraper#readme",
   "author": {
     "name": "Mauricio Pineda",
-	"email": "pinedamg@gmail.com"
+    "email": "pinedamg@gmail.com"
   },
   "repository": {
     "type": "git",
-		"url": "git+https://github.com/pinedamg/n8n-nodes-instagram-scraper.git"
-	},
-	"main": "dist/index.js",
-	"scripts": {
-		"build": "npx rimraf dist && tsc && webpack --config webpack.config.js && gulp build:icons",
-		"dev": "tsc --watch",
-		"format": "prettier nodes --write",
-		"lint": "eslint nodes package.json",
-		"lintfix": "eslint nodes package.json --fix",
-		"prepublishOnly": "npm run build && eslint -c .eslintrc.prepublish.js nodes package.json"
-	},
-	"files": [
-		"dist"
-	],
-	"n8n": {
-		"n8nNodesApiVersion": 1,
-		"credentials": [],
-		"nodes": [
-			"dist/nodes/InstagramScraper/InstagramScraper.node.js"
-		]
-	},
-	"devDependencies": {
-		"@typescript-eslint/parser": "~8.32.0"
+    "url": "git+https://github.com/pinedamg/n8n-nodes-instagram-scraper.git"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx rimraf dist && tsc && webpack --config webpack.config.js && gulp build:icons",
+    "dev": "tsc --watch",
+    "format": "prettier nodes --write",
+    "lint": "eslint nodes package.json",
+    "lintfix": "eslint nodes package.json --fix",
+    "prepublishOnly": "npm run build && eslint -c .eslintrc.prepublish.js nodes package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [],
+    "nodes": [
+      "dist/nodes/InstagramScraper/InstagramScraper.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "~8.32.0"
   }
 }
