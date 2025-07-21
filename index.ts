@@ -1,3 +1,3 @@
-import { InstagramScraperNode } from './nodes/InstagramScraper/InstagramScraper.node';
+import { InstagramScraper } from './nodes/InstagramScraper/InstagramScraper.node'; // <-- CAMBIO AQUÍ
 
-export { InstagramScraperNode };
+export { InstagramScraper };

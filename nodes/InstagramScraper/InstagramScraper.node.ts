@@ -5,12 +5,12 @@ import {
     INodeTypeDescription,
     NodeOperationError,
 } from 'n8n-workflow';
-import { InstagramScraper } from '@aduptive/instagram-scraper';
+import { InstagramScraper as InstagramScraperLibrary } from '@aduptive/instagram-scraper';
 
-export class InstagramScraperNode implements INodeType {
+export class InstagramScraper implements INodeType { // <-- CAMBIO AQUÍ: Renombramos la clase de tu nodo
     description: INodeTypeDescription = {
         displayName: 'Instagram Scraper',
-        name: 'instagramScraper',
+        name: 'instagramScraper', // El nombre interno del nodo, puede seguir siendo 'instagramScraper'
         icon: 'file:instagram.svg',
         group: ['transform'],
         version: 1,
@@ -34,9 +34,9 @@ export class InstagramScraperNode implements INodeType {
                 displayName: 'Limit',
                 name: 'limit',
                 type: 'number',
-																typeOptions: {
-																	minValue: 1,
-																},
+                typeOptions: {
+                    minValue: 1,
+                },
                 default: 50,
                 description: 'Max number of results to return',
             },
@@ -47,7 +47,7 @@ export class InstagramScraperNode implements INodeType {
         const username = this.getNodeParameter('username', 0) as string;
         const limit = this.getNodeParameter('limit', 0) as number;
 
-        const scraper = new InstagramScraper();
+        const scraper = new InstagramScraperLibrary(); // <-- CAMBIO AQUÍ: Usamos el nuevo nombre de la importación
 
         try {
             const results = await scraper.getPosts(username, limit);
