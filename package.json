@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-instagram-scraper",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "A node to scrape public Instagram profiles.",
   "keywords": [
     "n8n-community-node-package"
